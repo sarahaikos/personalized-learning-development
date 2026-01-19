@@ -6,7 +6,8 @@
   "scripts": {
     "predev": "node -e \"const fs = require('fs'); const path = require('path'); if (fs.existsSync('data/notes.json')) { fs.mkdirSync('public/data', { recursive: true }); fs.copyFileSync('data/notes.json', 'public/data/notes.json'); console.log('✅ Synced data/notes.json to public/data/notes.json'); }\"",
     "dev": "npm run predev && vite",
-    "build": "vite build",
+    "build": "npm run prebuild && vite build",
+    "prebuild": "node -e \"const fs = require('fs'); const path = require('path'); if (fs.existsSync('data/notes.json')) { fs.mkdirSync('public/data', { recursive: true }); fs.copyFileSync('data/notes.json', 'public/data/notes.json'); }\"",
     "preview": "vite preview"
   },
   "dependencies": {
