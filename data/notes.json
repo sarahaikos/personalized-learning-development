@@ -1,0 +1,431 @@
+{
+  "1": {
+    "id": 1,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-01-19",
+        "content": "Meeting with Mas Puja dan Kak Angeli:<div><ul><li>Bagaimana menganalisis dari profile orang dengan perbedaan kampus, <b>competitive modeling (SFIA)</b> (setiap orang mau ada report → recommendation next coursenya apa?)</li><li>Goal: <b>design a recommendation learning path</b></li><li><b>ITS</b> → belajar untuk memanfaatkan AI, tau skill gapsnya gimana → kasih solusi cara belajar/learning path selanjutnya harus gimana</li><li><b>SFIA</b> → nilai acuan untuk bidang IT, (transkrip nilai) levelnya berapa?</li><li>Penerapan SFIA (ada 121 skills): ada 7 level (7 - expert), misal software engineering butuh skill a level x, skill b level x, skill c levey y | misal kemampuan orang ini se-B tapi actual level skill yang diperluin untuk menjadi xxx butuh mencapai se-A → ada skill gap → ini yang harus dibantu dengan personalized learning, apa yang perlu dilakukan orang ini selanjutnya?</li><li>SFIA memudahkan dalam proses rekognasi kompetensi seseorang → menjadi standard untuk mengetahui sekill seeseorang dengan lebih jelas dan terukur</li><li>Teaching strategy → learning path → graph kalau bisa ga statik → gimana caranya? kasih rekomendasi → berdasarkan student model dengan nama, dan penilaian masing masing di bidangnya (contoh detail: software - A, database - B) → personalized based on orangnya (background datanya gimana? ranking? terlalu jauh gapnya bisa jadi burned out → kasih solusi yang feasible)</li><li>Modeling + pembobotan</li><li>Reinforcement learning</li><li>To do: Internship proposal (include best case &amp; worst case) (<b>DONE</b>)</li></ul></div>",
+        "files": [
+          {
+            "id": 1768845604976.7002,
+            "name": "INTERNSHIP PROPOSAL.pdf",
+            "size": 299690,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-1/INTERNSHIP PROPOSAL.pdf",
+            "uploadedAt": "2026-01-19T18:00:04.977Z"
+          }
+        ]
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-01-20",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-01-21",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-01-22",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-01-23",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "2": {
+    "id": 2,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-01-26",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-01-27",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-01-28",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-01-29",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-01-30",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "3": {
+    "id": 3,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-02-02",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-02-03",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-02-04",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-02-05",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-02-06",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "4": {
+    "id": 4,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-02-09",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-02-10",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-02-11",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-02-12",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-02-13",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "5": {
+    "id": 5,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-02-16",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-02-17",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-02-18",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-02-19",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-02-20",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "6": {
+    "id": 6,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-02-23",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-02-24",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-02-25",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-02-26",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-02-27",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "7": {
+    "id": 7,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-03-02",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-03-03",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-03-04",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-03-05",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-03-06",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "8": {
+    "id": 8,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-03-09",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-03-10",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-03-11",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-03-12",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-03-13",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "9": {
+    "id": 9,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-03-16",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-03-17",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-03-18",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-03-19",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-03-20",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "10": {
+    "id": 10,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-03-23",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-03-24",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-03-25",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-03-26",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-03-27",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "11": {
+    "id": 11,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-03-30",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-03-31",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-04-01",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-04-02",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-04-03",
+        "content": "",
+        "files": []
+      }
+    }
+  },
+  "12": {
+    "id": 12,
+    "days": {
+      "1": {
+        "dayNumber": 1,
+        "date": "2026-04-06",
+        "content": "",
+        "files": []
+      },
+      "2": {
+        "dayNumber": 2,
+        "date": "2026-04-07",
+        "content": "",
+        "files": []
+      },
+      "3": {
+        "dayNumber": 3,
+        "date": "2026-04-08",
+        "content": "",
+        "files": []
+      },
+      "4": {
+        "dayNumber": 4,
+        "date": "2026-04-09",
+        "content": "",
+        "files": []
+      },
+      "5": {
+        "dayNumber": 5,
+        "date": "2026-04-10",
+        "content": "",
+        "files": []
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# Keep data folder - notes should be committed to git
+!data/
+!data/notes.json
+!data/files/
+
+# Files folder - uploaded files should be committed
+!files/
+
+# public/data/notes.json is auto-generated from data/notes.json
+# Don't commit it - it's just for dev server
+public/data/notes.json
+
