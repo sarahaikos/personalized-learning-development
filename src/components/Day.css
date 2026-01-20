@@ -4,6 +4,9 @@
   border-radius: 12px;
   padding: 2rem;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .day-container:hover {
@@ -41,6 +44,9 @@
 .day-content {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .day-content .rich-text-editor {
