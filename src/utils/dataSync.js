@@ -5,11 +5,16 @@
 export async function loadNotesFromFile() {
   try {
     // Vite serves files from public folder at root
-    const response = await fetch('/data/notes.json')
+    // Add cache-busting query parameter to ensure we get the latest version
+    const cacheBuster = new Date().getTime()
+    const response = await fetch(`/data/notes.json?t=${cacheBuster}`, {
+      cache: 'no-store'
+    })
     if (!response.ok) {
       throw new Error('Failed to load notes.json')
     }
     const data = await response.json()
+    console.log('✅ Loaded notes from file')
     return data
   } catch (error) {
     console.warn('Could not load notes from file (this is OK if file does not exist yet):', error.message)
@@ -63,14 +68,16 @@ export function exportNotesToFile(weeks) {
 }
 
 export function mergeNotes(localStorageNotes, fileNotes) {
-  // Merge strategy: localStorage takes precedence (has latest changes)
-  // But if localStorage is empty, use file notes
+  // If fileNotes exist, use them as the base (they're the source of truth from git)
+  // Merge strategy: file notes as base, localStorage as updates (only for local dev)
+  // But if localStorage is empty or null, use file notes directly
   if (!localStorageNotes || Object.keys(localStorageNotes).length === 0) {
     return migrateOldFormat(fileNotes || {})
   }
   
   // Deep merge: file notes as base, localStorage as updates
-  const merged = { ...fileNotes }
+  // Start with file notes to ensure we have the latest from git
+  const merged = { ...migrateOldFormat(fileNotes || {}) }
   
   Object.keys(localStorageNotes).forEach(weekId => {
     if (!merged[weekId]) {

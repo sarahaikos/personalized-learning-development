@@ -22,6 +22,7 @@ function App() {
 
   const [selectedWeek, setSelectedWeek] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
   const [manualViewerMode, setManualViewerMode] = useState(() => {
     // Only check localStorage if not on Vercel (auto-detection takes precedence)
     if (typeof window !== 'undefined') {
@@ -54,19 +55,33 @@ function App() {
       // Load from file first
       const fileNotes = await loadNotesFromFile()
       
-      // Load from localStorage
-      const savedData = localStorage.getItem('rd-notes')
+      // Check if we're on Vercel/production
+      const isProduction = typeof window !== 'undefined' && (
+        window.location.hostname.includes('vercel.app') ||
+        window.location.hostname.includes('vercel.com') ||
+        window.location.hostname.endsWith('.vercel.app') ||
+        window.location.hostname.endsWith('.vercel.com')
+      )
+      
+      // On production, prioritize file notes and ignore localStorage
+      // On local dev, merge localStorage with file notes
       let localStorageNotes = null
-      if (savedData) {
-        try {
-          localStorageNotes = JSON.parse(savedData)
-        } catch (e) {
-          console.error('Error parsing localStorage data:', e)
+      if (!isProduction) {
+        const savedData = localStorage.getItem('rd-notes')
+        if (savedData) {
+          try {
+            localStorageNotes = JSON.parse(savedData)
+          } catch (e) {
+            console.error('Error parsing localStorage data:', e)
+          }
         }
+      } else {
+        // On production, clear old localStorage to ensure file notes are used
+        console.log('Production mode: Using file notes only')
       }
       
-      // Merge: file as base, localStorage as updates
-      const merged = mergeNotes(localStorageNotes, fileNotes || weeks)
+      // Merge: file as base, localStorage as updates (only on local dev)
+      const merged = mergeNotes(isProduction ? null : localStorageNotes, fileNotes || weeks)
       
       // Ensure all weeks exist
       for (let i = 1; i <= TOTAL_WEEKS; i++) {
@@ -174,6 +189,13 @@ function App() {
 
   return (
     <div className="app">
+      <button
+        className="mobile-menu-button"
+        onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
       <Sidebar 
         weeks={weeks} 
         selectedWeek={selectedWeek}
@@ -181,6 +203,8 @@ function App() {
         viewerMode={viewerMode}
         onToggleViewerMode={handleToggleViewerMode}
         canToggleViewerMode={!isAutoViewerMode()} // Only allow toggle if not auto-enabled
+        isMobileOpen={isMobileSidebarOpen}
+        onMobileToggle={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
       />
       <main className="app-main">
         <div className="main-content">
