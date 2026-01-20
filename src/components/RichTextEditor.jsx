@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import './RichTextEditor.css'
 
-function RichTextEditor({ value, onChange, placeholder, label }) {
+function RichTextEditor({ value, onChange, placeholder, label, readOnly = false }) {
   const editorRef = useRef(null)
   const toolbarRef = useRef(null)
   const [showToolbar, setShowToolbar] = useState(false)
@@ -21,11 +21,13 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }, [value])
 
   const handleInput = (e) => {
+    if (readOnly) return
     const content = e.target.innerHTML
     onChange(content)
   }
 
   const handleKeyDown = (e) => {
+    if (readOnly) return
     // Check if user typed "->" to create an arrow
     if (e.key === '>' && editorRef.current) {
       const selection = window.getSelection()
@@ -60,6 +62,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }
 
   const formatText = (command, value = null) => {
+    if (readOnly) return
     document.execCommand(command, false, value)
     if (editorRef.current) {
       editorRef.current.focus()
@@ -69,6 +72,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }
 
   useEffect(() => {
+    if (readOnly) return
     const handleKeyboardShortcuts = (e) => {
       // Handle keyboard shortcuts
       if ((e.ctrlKey || e.metaKey) && !e.shiftKey) {
@@ -87,7 +91,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
       editor.addEventListener('keydown', handleKeyboardShortcuts)
       return () => editor.removeEventListener('keydown', handleKeyboardShortcuts)
     }
-  }, [])
+  }, [readOnly])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -109,6 +113,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }, [showToolbar, showInlineToolbar])
 
   const handleSelection = () => {
+    if (readOnly) return
     const selection = window.getSelection()
     if (selection.rangeCount > 0 && !selection.isCollapsed) {
       const range = selection.getRangeAt(0)
@@ -125,6 +130,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }
 
   const handleClick = (e) => {
+    if (readOnly) return
     // Show inline toolbar when clicking in editor
     if (editorRef.current && editorRef.current.contains(e.target)) {
       const rect = editorRef.current.getBoundingClientRect()
@@ -138,12 +144,14 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
   }
 
   const insertList = (ordered = false) => {
+    if (readOnly) return
     const command = ordered ? 'insertOrderedList' : 'insertUnorderedList'
     formatText(command)
   }
 
 
   const insertCodeBlock = () => {
+    if (readOnly) return
     const selection = window.getSelection()
     if (selection.rangeCount > 0) {
       const range = selection.getRangeAt(0)
@@ -183,7 +191,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
     <div className="rich-text-editor">
       {label && <div className="editor-label">{label}</div>}
       <div className="editor-wrapper">
-        {showToolbar && (
+        {!readOnly && showToolbar && (
           <div 
             ref={toolbarRef}
             className="formatting-toolbar"
@@ -218,7 +226,7 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
             </button>
           </div>
         )}
-        {showInlineToolbar && (
+        {!readOnly && showInlineToolbar && (
           <div 
             ref={toolbarRef}
             className="inline-formatting-toolbar"
@@ -271,8 +279,8 @@ function RichTextEditor({ value, onChange, placeholder, label }) {
         )}
         <div
           ref={editorRef}
-          className="editor-content"
-          contentEditable
+          className={`editor-content ${readOnly ? 'read-only' : ''}`}
+          contentEditable={!readOnly}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           onMouseUp={handleSelection}

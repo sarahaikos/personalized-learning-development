@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import './FileUpload.css'
 
-function FileUpload({ files = [], onFileAdd, onFileRemove, weekId, dayNumber }) {
+function FileUpload({ files = [], onFileAdd, onFileRemove, weekId, dayNumber, readOnly = false }) {
   const [isDragging, setIsDragging] = useState(false)
   const fileInputRef = useRef(null)
 
@@ -139,13 +139,15 @@ function FileUpload({ files = [], onFileAdd, onFileRemove, weekId, dayNumber }) 
                   >
                     ⬇
                   </button>
-                  <button
-                    className="file-remove-btn"
-                    onClick={() => onFileRemove(file.id)}
-                    title="Remove file"
-                  >
-                    ✕
-                  </button>
+                  {!readOnly && (
+                    <button
+                      className="file-remove-btn"
+                      onClick={() => onFileRemove(file.id)}
+                      title="Remove file"
+                    >
+                      ✕
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Sidebar.css'
 
-function Sidebar({ weeks, selectedWeek, onSelectWeek }) {
+function Sidebar({ weeks, selectedWeek, onSelectWeek, viewerMode, onToggleViewerMode, canToggleViewerMode }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
@@ -26,6 +26,24 @@ function Sidebar({ weeks, selectedWeek, onSelectWeek }) {
       
       {!isCollapsed && (
         <nav className="sidebar-nav">
+          {canToggleViewerMode && (
+            <div className="viewer-mode-toggle-section">
+              <button
+                className={`viewer-mode-toggle ${viewerMode ? 'active' : ''}`}
+                onClick={onToggleViewerMode}
+                title={viewerMode ? 'Switch to Edit Mode' : 'Preview Viewer Mode'}
+              >
+                <span className="viewer-mode-text">
+                  {viewerMode ? 'Viewer Mode' : 'Edit Mode'}
+                </span>
+              </button>
+            </div>
+          )}
+          {viewerMode && canToggleViewerMode && (
+            <div className="viewer-mode-indicator">
+              <span className="viewer-mode-badge">Read-Only</span>
+            </div>
+          )}
           <div className="nav-section">
             <div className="nav-section-title">Weeks</div>
             {Object.values(weeks).map(week => {

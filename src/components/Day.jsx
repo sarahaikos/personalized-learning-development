@@ -4,7 +4,7 @@ import FileUpload from './FileUpload'
 import { exportNotesToFile } from '../utils/dataSync'
 import './Day.css'
 
-function Day({ day, weekId, onUpdate, allWeeks }) {
+function Day({ day, weekId, onUpdate, allWeeks, viewerMode = false }) {
   const dayNumber = day.dayNumber || 1
   const [saveStatus, setSaveStatus] = useState('')
   const [isDragging, setIsDragging] = useState(false)
@@ -111,6 +111,7 @@ function Day({ day, weekId, onUpdate, allWeeks }) {
           value={day.content || ''}
           onChange={handleChange}
           placeholder="Write your notes here..."
+          readOnly={viewerMode}
         />
         
         <FileUpload
@@ -119,40 +120,43 @@ function Day({ day, weekId, onUpdate, allWeeks }) {
           onFileRemove={handleFileRemove}
           weekId={weekId}
           dayNumber={dayNumber}
+          readOnly={viewerMode}
         />
         
-        <div className="day-actions">
-          <div className="file-upload-section">
-            <div
-              className={`file-drop-zone ${isDragging ? 'dragging' : ''}`}
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              onClick={() => fileInputRef.current?.click()}
-            >
-              <input
-                ref={fileInputRef}
-                type="file"
-                multiple
-                onChange={(e) => {
-                  if (e.target.files.length > 0) {
-                    handleFileSelect(e.target.files)
-                    e.target.value = ''
-                  }
-                }}
-                style={{ display: 'none' }}
-              />
-              <span className="add-file-text">+ add file</span>
+        {!viewerMode && (
+          <div className="day-actions">
+            <div className="file-upload-section">
+              <div
+                className={`file-drop-zone ${isDragging ? 'dragging' : ''}`}
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  multiple
+                  onChange={(e) => {
+                    if (e.target.files.length > 0) {
+                      handleFileSelect(e.target.files)
+                      e.target.value = ''
+                    }
+                  }}
+                  style={{ display: 'none' }}
+                />
+                <span className="add-file-text">+ add file</span>
+              </div>
             </div>
+            <button 
+              className="day-save-button"
+              onClick={handleSave}
+              title="Save this day's notes"
+            >
+              {saveStatus || '✓ Save'}
+            </button>
           </div>
-          <button 
-            className="day-save-button"
-            onClick={handleSave}
-            title="Save this day's notes"
-          >
-            {saveStatus || '✓ Save'}
-          </button>
-        </div>
+        )}
       </div>
     </div>
   )

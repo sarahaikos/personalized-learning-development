@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Sidebar from './components/Sidebar'
 import Week from './components/Week'
 import { loadNotesFromFile, mergeNotes } from './utils/dataSync'
+import { isViewerMode as checkViewerMode } from './utils/viewerMode'
 import './App.css'
 
 const TOTAL_WEEKS = 12 // 3 months = 12 weeks
@@ -21,6 +22,14 @@ function App() {
 
   const [selectedWeek, setSelectedWeek] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
+  const [manualViewerMode, setManualViewerMode] = useState(() => {
+    // Check if viewer mode was manually set
+    const saved = localStorage.getItem('rd-viewer-mode')
+    return saved === 'true'
+  })
+  
+  // Check if we're in viewer mode (auto or manual)
+  const viewerMode = checkViewerMode(manualViewerMode)
 
   // Load data from both file and localStorage on mount
   useEffect(() => {
@@ -122,12 +131,36 @@ function App() {
     )
   }
 
+  const handleToggleViewerMode = () => {
+    const newMode = !manualViewerMode
+    setManualViewerMode(newMode)
+    localStorage.setItem('rd-viewer-mode', newMode ? 'true' : 'false')
+  }
+
+  // Check if viewer mode is auto-enabled (Vercel or env var)
+  // If so, don't allow manual toggle
+  const isAutoViewerMode = () => {
+    if (import.meta.env.VITE_VIEWER_MODE === 'true') {
+      return true
+    }
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname
+      if (hostname.includes('vercel.app') || hostname.includes('vercel.com')) {
+        return true
+      }
+    }
+    return false
+  }
+
   return (
     <div className="app">
       <Sidebar 
         weeks={weeks} 
         selectedWeek={selectedWeek}
         onSelectWeek={setSelectedWeek}
+        viewerMode={viewerMode}
+        onToggleViewerMode={handleToggleViewerMode}
+        canToggleViewerMode={!isAutoViewerMode()} // Only allow toggle if not auto-enabled
       />
       <main className="app-main">
         <div className="main-content">
@@ -136,6 +169,7 @@ function App() {
               week={selectedWeekData}
               onUpdateDayNote={updateDayNote}
               allWeeks={weeks}
+              viewerMode={viewerMode}
             />
           )}
         </div>

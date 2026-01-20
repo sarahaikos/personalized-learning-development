@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Day from './Day'
 import './Week.css'
 
-function Week({ week, onUpdateDayNote, allWeeks }) {
+function Week({ week, onUpdateDayNote, allWeeks, viewerMode }) {
   const days = Object.values(week.days || {}).sort((a, b) => a.dayNumber - b.dayNumber)
 
   return (
@@ -25,6 +25,7 @@ function Week({ week, onUpdateDayNote, allWeeks }) {
               weekId={week.id}
               onUpdate={onUpdateDayNote}
               allWeeks={allWeeks}
+              viewerMode={viewerMode}
             />
           ))
         ) : (
