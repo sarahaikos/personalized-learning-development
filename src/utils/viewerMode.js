@@ -20,24 +20,7 @@ export function setManualViewerMode(enabled) {
 }
 
 export function isViewerMode(manualOverride = null) {
-  // Check manual override first (from prop or localStorage)
-  if (manualOverride !== null) {
-    return manualOverride
-  }
-  
-  if (manualViewerMode !== null) {
-    return manualViewerMode
-  }
-  
-  // Check localStorage for saved preference
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('rd-viewer-mode')
-    if (saved === 'true') {
-      manualViewerMode = true
-      return true
-    }
-  }
-  
+  // FIRST: Check for auto-detection (Vercel or env var) - these take precedence
   // Check environment variable
   if (import.meta.env.VITE_VIEWER_MODE === 'true') {
     return true
@@ -47,7 +30,31 @@ export function isViewerMode(manualOverride = null) {
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname
     // Enable viewer mode on Vercel deployments
-    if (hostname.includes('vercel.app') || hostname.includes('vercel.com')) {
+    // Check for various Vercel domain patterns
+    if (
+      hostname.includes('vercel.app') || 
+      hostname.includes('vercel.com') ||
+      hostname.endsWith('.vercel.app') ||
+      hostname.endsWith('.vercel.com')
+    ) {
+      return true
+    }
+  }
+  
+  // SECOND: Check manual override (only if not auto-enabled)
+  if (manualOverride !== null) {
+    return manualOverride
+  }
+  
+  if (manualViewerMode !== null) {
+    return manualViewerMode
+  }
+  
+  // Check localStorage for saved preference (only if not auto-enabled)
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('rd-viewer-mode')
+    if (saved === 'true') {
+      manualViewerMode = true
       return true
     }
   }

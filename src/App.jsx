@@ -23,12 +23,27 @@ function App() {
   const [selectedWeek, setSelectedWeek] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
   const [manualViewerMode, setManualViewerMode] = useState(() => {
-    // Check if viewer mode was manually set
-    const saved = localStorage.getItem('rd-viewer-mode')
-    return saved === 'true'
+    // Only check localStorage if not on Vercel (auto-detection takes precedence)
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname
+      // If on Vercel, ignore localStorage
+      if (
+        hostname.includes('vercel.app') || 
+        hostname.includes('vercel.com') ||
+        hostname.endsWith('.vercel.app') ||
+        hostname.endsWith('.vercel.com')
+      ) {
+        return null // Let auto-detection handle it
+      }
+      // Check if viewer mode was manually set (only locally)
+      const saved = localStorage.getItem('rd-viewer-mode')
+      return saved === 'true' ? true : (saved === 'false' ? false : null)
+    }
+    return null
   })
   
   // Check if we're in viewer mode (auto or manual)
+  // Pass null to let auto-detection work, or the manual value if set locally
   const viewerMode = checkViewerMode(manualViewerMode)
 
   // Load data from both file and localStorage on mount
@@ -145,7 +160,12 @@ function App() {
     }
     if (typeof window !== 'undefined') {
       const hostname = window.location.hostname
-      if (hostname.includes('vercel.app') || hostname.includes('vercel.com')) {
+      if (
+        hostname.includes('vercel.app') || 
+        hostname.includes('vercel.com') ||
+        hostname.endsWith('.vercel.app') ||
+        hostname.endsWith('.vercel.com')
+      ) {
         return true
       }
     }
