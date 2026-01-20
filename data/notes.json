@@ -20,7 +20,7 @@
       "2": {
         "dayNumber": 2,
         "date": "2026-01-20",
-        "content": "Today's goals:<div><ul><li>Continue working on putting the idea together:&nbsp;<a href=\"https://docs.google.com/document/d/11vOVoSQ4hJT_1DZXhYtQT_Vw_Su50ciL45PaxeScX-I/edit?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"editor-link\">https://docs.google.com/document/d/11vOVoSQ4hJT_1DZXhYtQT_Vw_Su50ciL45PaxeScX-I/edit?usp=sharing</a></li><li>Mapping skills code in SFIA</li></ul><div>Finished works:</div></div><div><ul><li>Understanding SFIA skills and their details (what each skill covers + related topics).</li><li>I defined 5 tags to be focused on: [<b>DATA</b>] Data science, engineering, and analytics + AI | [<b>DEVO</b>] DevOps | [<b>SOFT</b>] Software Engineering | [<b>CYBR</b>] Information and cyber security | [<b>CLOU</b>] Cloud Computing (inside digital transformation view).</li><li>The full SFIA framework consists of 147 skills. I mapped each skill to one or more relevant tags and categorized them as core, non-technical, or additional/exploratory, using different colours. (File: SFIA - SFIA_Full_Framework.pdf)</li><li>Based on this annotated SFIA table, I created a visualization to illustrate the relationships between SFIA skill codes and tags. (File: sfia_inclusive_graph.png)<br></li><li>All related materials, including the SFIA CSV file and the code used to generate the SFIA connectivity visualization are maintained in my github's repo:&nbsp;<a href=\"https://github.com/sarahaikos/research-development-radyalabs\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"editor-link\">https://github.com/sarahaikos/research-development-radyalabs</a>&nbsp;(I will continue updating this repository as the work evolves).</li></ul></div>",
+        "content": "Today's goals:<div><ul><li>Continue working on putting the idea together:&nbsp;<a href=\"https://docs.google.com/document/d/11vOVoSQ4hJT_1DZXhYtQT_Vw_Su50ciL45PaxeScX-I/edit?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"editor-link\">https://docs.google.com/document/d/11vOVoSQ4hJT_1DZXhYtQT_Vw_Su50ciL45PaxeScX-I/edit?usp=sharing</a></li><li>Mapping skills code in SFIA</li></ul><div>Finished works:</div></div><div><ul><li>Understanding SFIA skills and their details (what each skill covers + related topics).</li><li>I defined 5 tags to be focused on: [<b>DATA</b>] Data science, engineering, and analytics + AI | [<b>DEVO</b>] DevOps | [<b>SOFT</b>] Software Engineering | [<b>CYBR</b>] Information and cyber security | [<b>CLOU</b>] Cloud Computing (inside digital transformation view).</li><li>The full SFIA framework consists of 147 skills. I mapped each skill to one or more relevant tags and categorized them as core, non-technical, or additional/exploratory, using different colours. (File: SFIA - SFIA_Full_Framework.pdf)</li><li>Based on this annotated SFIA table, I created a visualization to illustrate the relationships between SFIA skills and heatmaps between codes-tags. (File: SFIA_Mapping_Insight.JPG (I annotated the related ideas here as well))<br></li><li>All related materials, including the SFIA CSV file and the code used to generate the SFIA connectivity visualization are maintained in my github's repo:&nbsp;<a href=\"https://github.com/sarahaikos/research-development-radyalabs\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"editor-link\">https://github.com/sarahaikos/research-development-radyalabs</a>&nbsp;(I will continue updating this repository as the work evolves).</li></ul></div>",
         "files": [
           {
             "id": 1768915048139.2256,
@@ -31,12 +31,12 @@
             "uploadedAt": "2026-01-20T13:17:28.139Z"
           },
           {
-            "id": 1768915165865.0234,
-            "name": "sfia_inclusive_graph.png",
-            "size": 4868315,
-            "type": "image/png",
-            "path": "data/files/week-1/day-2/sfia_inclusive_graph.png",
-            "uploadedAt": "2026-01-20T13:19:25.865Z"
+            "id": 1768920147608.1501,
+            "name": "SFIA_Mapping_Insight.JPG",
+            "size": 956008,
+            "type": "image/jpeg",
+            "path": "data/files/week-1/day-2/SFIA_Mapping_Insight.JPG",
+            "uploadedAt": "2026-01-20T14:42:27.608Z"
           }
         ]
       },
