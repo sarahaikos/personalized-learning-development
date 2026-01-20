@@ -187,10 +187,158 @@ function RichTextEditor({ value, onChange, placeholder, label, readOnly = false 
     setShowToolbar(false)
   }
 
+  const insertLink = () => {
+    if (readOnly) return
+    const selection = window.getSelection()
+    if (selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0)
+      const selectedText = selection.toString()
+      
+      // Prompt for URL
+      const url = prompt('Enter URL:', selectedText ? '' : 'https://')
+      
+      if (url && url.trim()) {
+        try {
+          // Ensure URL has protocol
+          let finalUrl = url.trim()
+          if (!finalUrl.match(/^https?:\/\//i)) {
+            finalUrl = 'https://' + finalUrl
+          }
+          
+          // Create link element
+          const link = document.createElement('a')
+          link.href = finalUrl
+          link.target = '_blank'
+          link.rel = 'noopener noreferrer'
+          link.textContent = selectedText || finalUrl
+          link.className = 'editor-link'
+          
+          // If text is selected, replace it with link
+          if (selectedText && !range.collapsed) {
+            range.deleteContents()
+          }
+          
+          range.insertNode(link)
+          
+          // Move cursor after the link
+          const newRange = document.createRange()
+          newRange.setStartAfter(link)
+          newRange.collapse(true)
+          selection.removeAllRanges()
+          selection.addRange(newRange)
+          
+          handleInput({ target: editorRef.current })
+        } catch (e) {
+          console.error('Error inserting link:', e)
+        }
+      }
+    } else {
+      // No selection - prompt for both text and URL
+      const linkText = prompt('Enter link text:')
+      if (linkText) {
+        const url = prompt('Enter URL:', 'https://')
+        if (url && url.trim()) {
+          try {
+            let finalUrl = url.trim()
+            if (!finalUrl.match(/^https?:\/\//i)) {
+              finalUrl = 'https://' + finalUrl
+            }
+            
+            const link = document.createElement('a')
+            link.href = finalUrl
+            link.target = '_blank'
+            link.rel = 'noopener noreferrer'
+            link.textContent = linkText
+            link.className = 'editor-link'
+            
+            if (editorRef.current) {
+              const range = document.createRange()
+              const selection = window.getSelection()
+              
+              // Insert at cursor position
+              if (selection.rangeCount > 0) {
+                range.setStart(selection.getRangeAt(0).startContainer, selection.getRangeAt(0).startOffset)
+              } else {
+                range.selectNodeContents(editorRef.current)
+                range.collapse(false)
+              }
+              
+              range.insertNode(link)
+              
+              // Move cursor after link
+              const newRange = document.createRange()
+              newRange.setStartAfter(link)
+              newRange.collapse(true)
+              selection.removeAllRanges()
+              selection.addRange(newRange)
+              
+              handleInput({ target: editorRef.current })
+            }
+          } catch (e) {
+            console.error('Error inserting link:', e)
+          }
+        }
+      }
+    }
+    setShowToolbar(false)
+  }
+
   return (
     <div className="rich-text-editor">
       {label && <div className="editor-label">{label}</div>}
       <div className="editor-wrapper">
+        {!readOnly && (
+          <div className="persistent-toolbar">
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={() => formatText('bold')}
+              title="Bold (Ctrl+B)"
+            >
+              <strong>B</strong>
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={() => formatText('italic')}
+              title="Italic (Ctrl+I)"
+            >
+              <em>I</em>
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={insertLink}
+              title="Insert Link"
+            >
+              🔗
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={() => insertList(false)}
+              title="Bullet List"
+            >
+              •
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={() => insertList(true)}
+              title="Numbered List"
+            >
+              1.
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={insertCodeBlock}
+              title="Code Block"
+            >
+              {'</>'}
+            </button>
+          </div>
+        )}
         {!readOnly && showToolbar && (
           <div 
             ref={toolbarRef}
@@ -250,6 +398,14 @@ function RichTextEditor({ value, onChange, placeholder, label, readOnly = false 
               title="Italic (Ctrl+I)"
             >
               <em>I</em>
+            </button>
+            <button
+              type="button"
+              className="toolbar-btn"
+              onClick={insertLink}
+              title="Insert Link"
+            >
+              🔗
             </button>
             <button
               type="button"
