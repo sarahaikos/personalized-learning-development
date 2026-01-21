@@ -43,8 +43,17 @@
       "3": {
         "dayNumber": 3,
         "date": "2026-01-21",
-        "content": "",
-        "files": []
+        "content": "Meeting with Kak Angeli:<div><ul><li>add learning objective + learner's learning goals (integrasi datanya lengkap &amp; relevan sesuai tujuan learnernya)</li><li>[<b>out of scope</b>] contoh flow: ada feature untuk set learning goals/intention (career goal), skill aspiration, atau problem yang mau disolve, [<b>alternative idea</b>] instead of featurenya → make it as data → to be integrated with model</li><li>SOTA deliverables focusing on BKT, MLP, clustering</li><li>go deeper into the actual output + faktornya (terutama waktu) | hal yang terbayang dari sini: each individual has different learning speed → how to detect? effective? result? → assessment-based/project-based/interactive (?)</li><li>visuals: mastery progression, learner segmentation, path recommendation</li><li>prototype: personalized learning path recommendation, model: baseline, BKT, MLP, clustering</li></ul><div>Based on these inputs, new detailed focus factors:</div></div><div><ul><li>time: focus time, learning speed/study phase</li><li>understanding: mastery, engagement, mistakes</li><li>content: difficulty levels, learning map, format</li><li>decision-making logics: multiple valid next steps, explore more/constant topic, result progression</li></ul><div>To do:</div></div><div><ul><li>updated proposal (<b>DONE</b>)</li><li>ITS implementation idea</li></ul></div>",
+        "files": [
+          {
+            "id": 1768994293746.964,
+            "name": "INTERNSHIP PROPOSAL (1).pdf",
+            "size": 331541,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-3/INTERNSHIP PROPOSAL (1).pdf",
+            "uploadedAt": "2026-01-21T11:18:13.746Z"
+          }
+        ]
       },
       "4": {
         "dayNumber": 4,
