@@ -58,14 +58,64 @@
       "4": {
         "dayNumber": 4,
         "date": "2026-01-22",
-        "content": "",
-        "files": []
+        "content": "Finished works:<div><ul><li>Understanding the intelligent tutoring system concept</li><li>Built an idea of the required data and feature mapping based on the algorithms: Rule-Based, BKT, MLP, K-Means Clustering, DBSCAN, and RL (<i>Data Requirement.pdf</i>)</li><li><b>forgetting pattern*&nbsp;</b>: related to this topic, I conducted additional research related to Ebbinghaus Forgetting Curve (<i>Ebbinghaus Forgetting Curve.pdf</i>)<br></li><li>Generated module title that might be related to SFIA and mapped it with the relevant skills (code in github repo)</li></ul><div>Required data related to:</div></div><div><ul><li>Learner profile → focus: distribution of learner backgrounds vs target skills, skill level imbalance</li><li>Learning activity &amp; interaction → focus: time spent vs completion rate, time pattern long sessions effect lower success or not, fast vs slow learners across content difficulty level, engagement vs mastery correlation, passive vs active learner, burned out signals</li><li>Assessment &amp; performance → focus: score distributions per skill and level, learning curves, error patterns per concept, and mastery insight</li><li>Content → focus: skill coverage gaps, content difficulty vs learner performance, and format effectiveness</li><li>Temporal &amp; longitudinal → focus: <b>forgetting pattern*</b>, optimal review intervals, mastery stability, long term vs short term learners</li><li>Recommendation &amp; decision → focus: accepetance rate per recommendation type, exploration patterns, recommendation diversity, feedback from user</li></ul></div>",
+        "files": [
+          {
+            "id": 1769367786759.5608,
+            "name": "Data Requirement.pdf",
+            "size": 182098,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-4/Data Requirement.pdf",
+            "uploadedAt": "2026-01-22T19:03:06.760Z"
+          },
+          {
+            "id": 1769368327584.131,
+            "name": "Ebbinghaus Forgetting Curve.pdf",
+            "size": 901390,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-4/Ebbinghaus Forgetting Curve.pdf",
+            "uploadedAt": "2026-01-22T19:12:07.585Z"
+          }
+        ]
       },
       "5": {
         "dayNumber": 5,
         "date": "2026-01-23",
-        "content": "",
-        "files": []
+        "content": "Today's focus: <b>Rule-Based model ideation</b><div><br></div><div>Finished works:</div><div><ul><li>I made a documentation regarding key points to consider when building my model, especially in rule-based modeling: skill and module structuring based on SFIA, mastery threshold, and rule priority (<i>Research Focus.pdf</i>)</li><li>I outlined pseudo logic required to build a rule-based model (<i>Rule-Based Pesudo.pdf</i>)</li><li>Based on the separate pseudo logic, I began writing the mathematical formulas related to those pseudo logics, and building the entire rule-based pipeline (<i>Rule-Based Idea + Pipeline.pdf</i>)</li><li>Additionally, I generated data based on the variables I needed to build the model, and I started building the rule-based model. I created the visualization as an overview of the current result. (File: <i>recommendation_visualizations.png</i>)</li></ul></div>",
+        "files": [
+          {
+            "id": 1769368913472.9119,
+            "name": "Research Focus.pdf",
+            "size": 98579,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-5/Research Focus.pdf",
+            "uploadedAt": "2026-01-23T19:21:53.472Z"
+          },
+          {
+            "id": 1769369007775.3086,
+            "name": "Rule-Based Pseudo.pdf",
+            "size": 90072,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-5/Rule-Based Pseudo.pdf",
+            "uploadedAt": "2026-01-23T19:23:27.775Z"
+          },
+          {
+            "id": 1769369173287.9333,
+            "name": "Rule-Based Idea + Pipeline.pdf",
+            "size": 964567,
+            "type": "application/pdf",
+            "path": "data/files/week-1/day-5/Rule-Based Idea + Pipeline.pdf",
+            "uploadedAt": "2026-01-23T19:26:13.287Z"
+          },
+          {
+            "id": 1769369663845.739,
+            "name": "recommendation_visualizations.png",
+            "size": 312327,
+            "type": "image/png",
+            "path": "data/files/week-1/day-5/recommendation_visualizations.png",
+            "uploadedAt": "2026-01-23T19:34:23.845Z"
+          }
+        ]
       }
     }
   },
